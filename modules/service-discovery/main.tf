@@ -1,0 +1,13 @@
+resource "aws_service_discovery_private_dns_namespace" "this" {
+  name        = "${var.environment}.ecommerce.local"
+  description = "Private service discovery namespace"
+  vpc         = var.vpc_id
+}
+
+output "namespace_id" {
+  value = aws_service_discovery_private_dns_namespace.this.id
+}
+
+output "namespace_name" {
+  value = aws_service_discovery_private_dns_namespace.this.name
+}
